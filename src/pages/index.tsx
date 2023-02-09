@@ -3,7 +3,7 @@ import { Drawer } from '../components/Drawer';
 import { Header } from '../components/Header';
 import { Introduce } from '../components/introduce/Introduce';
 import { Innovation } from '../components/innovation/Innovation';
-
+import { Features } from '../components/features/Features';
 export default function Home() {
   return (
     <>
@@ -28,6 +28,7 @@ export default function Home() {
       <main>
         <Introduce />
         <Innovation />
+        <Features />
       </main>
     </>
   );
