@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { Drawer } from '../components/Drawer';
 import { Header } from '../components/Header';
 import { Introduce } from '../components/introduce/Introduce';
-// import { Innovation } from '../components/innovation/Innovation';
+import { Innovation } from '../components/innovation/Innovation';
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
 
       <main>
         <Introduce />
-        {/* <Innovation/> */}
+        <Innovation />
       </main>
     </>
   );
