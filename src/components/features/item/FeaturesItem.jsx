@@ -15,19 +15,26 @@ const ButtonWrapper = styled('div').attrs(() => ({
   display: flex;
   align-items: center;
   justify-content: center;
+  height: min-content;
+  transform: translateY(20%);
 `;
 
 const hidden = css`
   visibility: hidden;
   opacity: 0;
-  transform: translateY(-100%);
+  transform: translateY(-10%);
+  transition-delay: 0.2s;
 `;
 const visible = css`
   visibility: bisible;
   opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+
   transform: translateY(0);
 `;
 const HiddenText = styled.p`
+  margin-top: 2em;
+  ${({ theme }) => theme.text.simpleText};
   ${({ open }) => (open ? visible : hidden)}
 `;
 
@@ -35,6 +42,12 @@ const StyledButton = styled(IconButton).attrs(() => ({
   'aria-label': 'see feature',
 }))`
   color: ${({ theme }) => theme.lightGreen};
+`;
+
+const StyledTitle = styled.h4`
+  ${({ theme }) => theme.text.titleText};
+  font-size: 1.1em;
+  line-height: 1;
 `;
 
 export const FeaturesItem = ({ title, text }) => {
@@ -45,7 +58,7 @@ export const FeaturesItem = ({ title, text }) => {
       <div
         className={`${s.content} ${open ? s.open : null}`}
       >
-        <h4>{title}</h4>
+        <StyledTitle>{title}</StyledTitle>
         <HiddenText open={open}>{text}</HiddenText>
       </div>
 

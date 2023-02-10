@@ -1,5 +1,7 @@
 import React from 'react';
-import { FeaturesItem as Item } from './FeaturesItem';
+import { FeaturesItem as Item } from './item/FeaturesItem';
+import s from './Features.module.scss';
+
 export const Features = () => {
   const featuresList = [
     {
@@ -28,17 +30,40 @@ export const Features = () => {
     },
   ];
   return (
-    <section className={`container`}>
-      <ul>
-        {featuresList.map(({ text, title }, i) => (
-          <li key={i}>
-            <Item
-              text={text}
-              title={title}
-            />
-          </li>
-        ))}
+    <section className={`container ${s.features}`}>
+      <ul className={`${s['features__list']}`}>
+        <li className={`${s['features__subList']}`}>
+          {featuresList
+            .filter((el, i) => i < 3)
+            .map(({ text, title }, i) => (
+              <li
+                key={i}
+                className={`${s['features__item']}`}
+              >
+                <Item
+                  text={text}
+                  title={title}
+                />
+              </li>
+            ))}
+        </li>
+        <li className={`${s['features__subList']}`}>
+          {featuresList
+            .filter((el, i) => i >= 3 && i < 6)
+            .map(({ text, title }, i) => (
+              <li
+                key={i}
+                className={`${s['features__item']}`}
+              >
+                <Item
+                  text={text}
+                  title={title}
+                />
+              </li>
+            ))}
+        </li>
       </ul>
+      <div className={`${s['features__bg']}`}></div>
     </section>
   );
 };
